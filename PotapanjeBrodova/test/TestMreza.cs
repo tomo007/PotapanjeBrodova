@@ -82,6 +82,34 @@ namespace test
             Assert.IsFalse(m.DajSlobodnaPolja().Contains(new Polje(1, 1)));
 
         }
+        [TestMethod]
+        public void Mreza_DajNizovePoljaVraca3UHorizontalnomRetkuDuljine5()
+        {
+            Mreza m = new Mreza(1, 5);
+            Assert.AreEqual(3,m.DajNizoveSlobodnihPolja(3).Count());
+
+        }
+        [TestMethod]
+        public void Mreza_DajNizovrPoljaVracaPrazanNizZaBrodDuljine5UHorizontalnomRetkuDuljine4()
+        {
+            Mreza m = new Mreza(1, 4);
+            Assert.AreEqual(0, m.DajNizoveSlobodnihPolja(5).Count());
+
+        }
+        [TestMethod]
+        public void Mreza_DajNizovrPoljaVraca3UVertikalnomStupcuDuljine5()
+        {
+            Mreza m = new Mreza(5, 1);
+            Assert.AreEqual(6, m.DajNizoveSlobodnihPolja(3).Count());
+
+        }
+        [TestMethod]
+        public void Mreza_DajNizovrPoljaVracaPrazanNizZaBrodDuljine5UVertikalnomStupcuDuljine4()
+        {
+            Mreza m = new Mreza(4, 1);
+            Assert.AreEqual(0, m.DajNizoveSlobodnihPolja(5).Count());
+
+        }
 
     }
 }

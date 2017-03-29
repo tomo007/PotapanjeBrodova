@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PotapanjeBrodova
 {
-   public class Mreza
+    public class Mreza
     {
         private Polje[,] polje;
         private int redaka, stupaca;
@@ -37,6 +37,14 @@ namespace PotapanjeBrodova
         public void UkloniPolje(Polje p) {
             polje[p.Redak, p.Stupac] = null;
         }
+        public IEnumerable<IEnumerable<Polje>> DajNizoveSlobodnihPolja(int duljina) {
+            List<IEnumerable<Polje>> nizovi = new List<IEnumerable<Polje>>();
+           
+            
+            return nizovi;
+        }
+      
 
     }
 }
+
