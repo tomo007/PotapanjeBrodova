@@ -100,7 +100,7 @@ namespace test
         public void Mreza_DajNizovrPoljaVraca3UVertikalnomStupcuDuljine5()
         {
             Mreza m = new Mreza(5, 1);
-            Assert.AreEqual(6, m.DajNizoveSlobodnihPolja(3).Count());
+            Assert.AreEqual(3, m.DajNizoveSlobodnihPolja(3).Count());
 
         }
         [TestMethod]
