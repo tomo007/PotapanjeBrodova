@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PotapanjeBrodova;
+using System.Linq;
 
-namespace test
+namespace Test
 {
     [TestClass]
     public class TestMreza
@@ -13,13 +13,13 @@ namespace test
         {
             Mreza m = new Mreza(5, 5);
             Assert.AreEqual(25, m.DajSlobodnaPolja().Count());
-            
+
         }
         [TestMethod]
         public void Mreza_DajSlobodnaPoljaVraca24PoljaZaMrezu5x5NakonJednogUklonjenogPoljaZadanimRedkomIStupcem()
         {
             Mreza m = new Mreza(5, 5);
-            m.UkloniPolje(1,1);
+            m.UkloniPolje(1, 1);
             Assert.AreEqual(24, m.DajSlobodnaPolja().Count());
             Assert.IsFalse(m.DajSlobodnaPolja().Contains(new Polje(1, 1)));
 
@@ -32,7 +32,7 @@ namespace test
             m.UkloniPolje(4, 4);
             Assert.AreEqual(23, m.DajSlobodnaPolja().Count());
             Assert.IsFalse(m.DajSlobodnaPolja().Contains(new Polje(1, 1)));
-            Assert.IsFalse(m.DajSlobodnaPolja().Contains(new Polje(4,4)));
+            Assert.IsFalse(m.DajSlobodnaPolja().Contains(new Polje(4, 4)));
         }
         [TestMethod]
         public void Mreza_UkloniPoljeBacaIznimkuZaNepostojeciRedak()
@@ -48,10 +48,11 @@ namespace test
             {
                 Assert.IsTrue(true);
             }
-            catch (Exception) {
+            catch (Exception)
+            {
                 Assert.Fail();
             }
-            
+
         }
         [TestMethod]
         public void Mreza_UkloniPoljeBacaIznimkuZaNepostojeciStupac()
@@ -83,10 +84,10 @@ namespace test
 
         }
         [TestMethod]
-        public void Mreza_DajNizovePoljaVraca3UHorizontalnomRetkuDuljine5()
+        public void Mreza_DajNizovrPoljaVraca3UHorizontalnomRetkuDuljine5()
         {
             Mreza m = new Mreza(1, 5);
-            Assert.AreEqual(3,m.DajNizoveSlobodnihPolja(3).Count());
+            Assert.AreEqual(3, m.DajNizoveSlobodnihPolja(3).Count());
 
         }
         [TestMethod]

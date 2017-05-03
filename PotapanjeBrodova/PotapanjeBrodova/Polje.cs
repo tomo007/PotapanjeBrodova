@@ -2,23 +2,25 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace PotapanjeBrodova
 {
-   public class Polje:IEquatable<Polje>
+    public class Polje : IEquatable<Polje>
     {
-        public Polje(int Redak, int Stupac) {
-            this.Redak = Redak;
-            this.Stupac = Stupac;
-
+        public Polje(int redak, int stupac)
+        {
+            Redak = redak;
+            Stupac = stupac;
         }
-        public readonly int Redak, Stupac;
+
+        public readonly int Redak;
+        public readonly int Stupac;
 
         public bool Equals(Polje other)
         {
             return Redak == other.Redak && Stupac == other.Stupac;
         }
+
         public override bool Equals(object obj)
         {
             if (obj == null)
@@ -26,6 +28,10 @@ namespace PotapanjeBrodova
             if (obj.GetType() != GetType())
                 return false;
             return Equals((Polje)obj);
+        }
+        public override int GetHashCode()
+        {
+            return Redak ^ Stupac >> 16;
         }
     }
 }

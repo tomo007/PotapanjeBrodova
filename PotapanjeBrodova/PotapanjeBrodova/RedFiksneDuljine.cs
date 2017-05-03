@@ -6,16 +6,21 @@ using System.Threading.Tasks;
 
 namespace PotapanjeBrodova
 {
-   public class RedFiksneDuljine<T> : Queue<T> {
-        private int maksimalnaDuljina;
-        public RedFiksneDuljine(int maksimalnaDuljina) {
+    public class RedFiksneDuljine<T> : Queue<T>
+    {
+        public RedFiksneDuljine(int maksimalnaDuljina)
+        {
             this.maksimalnaDuljina = maksimalnaDuljina;
         }
-        public new void Enqueue(T element) {
+
+        public new void Enqueue(T element)
+        {
             base.Enqueue(element);
-            while (base.Count > maksimalnaDuljina) {
+            while (Count > maksimalnaDuljina)
                 Dequeue();
-            }
         }
+
+        private int maksimalnaDuljina;
+
     }
 }

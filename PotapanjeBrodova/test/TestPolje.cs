@@ -2,28 +2,29 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PotapanjeBrodova;
 
-namespace test
+namespace Test
 {
     [TestClass]
-    public class TestPolje
+    public class TestPolja
     {
         [TestMethod]
-        public void Polja_RedakiStupacJednakiSuArgumentimaKonstruktora()
+        public void Polje_RedatIStupacJednakiSuArgumentimaKonstruktora()
         {
             Polje p = new Polje(2, 3);
             Assert.AreEqual(2, p.Redak);
             Assert.AreEqual(3, p.Stupac);
         }
+
         [TestMethod]
-        public void Polja_ZaDvaPoljaKojaImajuIsteKordinateEqualsVracaTrue()
+        public void Polje_ZaDvaPoljaKojaImajuIsteKoordinateMetodeEqualsVracaTrue()
         {
             Polje p1 = new Polje(2, 3);
             Polje p2 = new Polje(2, 3);
             Assert.IsTrue(p1.Equals(p2));
-            
         }
+
         [TestMethod]
-        public void Polja_ZaDvaPoljaKojaNeimajuIsteKordinateEqualsVracaFalse()
+        public void Polje_ZaDvaPoljaKojaNemajuIsteKoordinateMetodeEqualsVracaFalse()
         {
             Polje p1 = new Polje(2, 3);
             Polje p2 = new Polje(1, 3);
