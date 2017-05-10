@@ -45,11 +45,14 @@
     <Compile Include="Flota.cs" />
     <Compile Include="IGađani.cs" />
     <Compile Include="IPucač.cs" />
+    <Compile Include="KružniPucač.cs" />
+    <Compile Include="LinijskiPucač.cs" />
     <Compile Include="Mreza.cs" />
     <Compile Include="Polje.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Proširenja.cs" />
     <Compile Include="RedFiksneDuljine.cs" />
+    <Compile Include="SlučajniPucač.cs" />
     <Compile Include="TerminatorPolja.cs" />
     <Compile Include="Topništvo.cs" />
   </ItemGroup>

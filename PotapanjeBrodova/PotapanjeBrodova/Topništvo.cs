@@ -17,7 +17,7 @@ namespace PotapanjeBrodova
     {
         private Mreza mreža;
         private List<int> duljineBrodova;
-
+        private IPucač pucač;
 
         public TaktikaGađanja TaktikaGađanja { get; private set; }
         public Topništvo(int redak, int stupac, IEnumerable<int> duljineBrodova)
@@ -25,6 +25,7 @@ namespace PotapanjeBrodova
             mreža = new Mreza(redak, stupac);
             this.duljineBrodova = new List<int>(duljineBrodova);
             TaktikaGađanja = TaktikaGađanja.Nasumično;
+            pucač = new SlučajniPucač(mreža, duljineBrodova.First());
         }
         public void ObradiGađanje(RezultatGađanja rezultat)
         {
