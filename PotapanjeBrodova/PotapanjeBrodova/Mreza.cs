@@ -3,9 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace PotapanjeBrodova
 {
+    public enum Smjer {
+        Desno,
+        Dolje,
+        Lijevo,
+        Gore
+    }
     public class Mreza
     {
         private Polje[,] polje;
@@ -21,6 +28,69 @@ namespace PotapanjeBrodova
                 for (int s = 0; s < stupaca; ++s)
                     polje[r, s] = new Polje(r, s);
             }
+        }
+
+       public IEnumerable<Polje> DajNizSlobodnihPolja(Polje polje, Smjer smjer)
+        {
+            switch (smjer) {
+                case Smjer.Desno:
+                    return DajSlobodnaPoljaDesno(polje);
+                case Smjer.Dolje:
+                    return DajSlobodnaPoljaDolje(polje);
+                case Smjer.Lijevo:
+                    return DajSlobodnaPoljaLijevo(polje);
+                case Smjer.Gore:
+                    return DajSlobodnaPoljaGore(polje);
+                default:
+                    Debug.Assert(false);
+                    break;
+
+
+            }
+            return new List<Polje>();
+        }
+        private IEnumerable<Polje> DajSlobodnaPoljaDesno(Polje polje) {
+            List<Polje> rezultat = new List<Polje>();
+            for (int s = polje.Stupac + 1; s < stupaca; ++s)
+            {
+                if (this.polje[polje.Redak, s] == null)
+                    break;
+                rezultat.Add(this.polje[polje.Redak, s]);
+            }
+                return rezultat;
+        }
+        private IEnumerable<Polje> DajSlobodnaPoljaDolje(Polje polje)
+        {
+            List<Polje> rezultat = new List<Polje>();
+            for (int r = polje.Redak + 1; r < redaka; ++r)
+            {
+                if (this.polje[r, polje.Stupac] == null)
+                    break;
+                rezultat.Add(this.polje[r, polje.Stupac]);
+            }
+            return rezultat;
+        }
+        private IEnumerable<Polje> DajSlobodnaPoljaLijevo(Polje polje)
+        {
+            List<Polje> rezultat = new List<Polje>();
+            for (int s = polje.Stupac - 1; s < stupaca; --s)
+            {
+                if (this.polje[polje.Redak, s] == null)
+                    break;
+                rezultat.Add(this.polje[polje.Redak, s]);
+            }
+            return rezultat;
+        }
+        private IEnumerable<Polje> DajSlobodnaPoljaGore(Polje polje)
+        {
+            List<Polje> rezultat = new List<Polje>();
+            for (int s = polje.Stupac - 1; s < stupaca; --s)
+            {
+                if (this.polje[polje.Redak, s] == null)
+                    break;
+                rezultat.Add(this.polje[polje.Redak, s]);
+            }
+            return rezultat;
         }
 
         public IEnumerable<Polje> DajSlobodnaPolja()

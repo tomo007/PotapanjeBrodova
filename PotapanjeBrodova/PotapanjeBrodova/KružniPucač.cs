@@ -9,8 +9,15 @@ namespace PotapanjeBrodova
     public class KružniPucač : IPucač
     {
         private Mreza mreža;
-        Polje prvoPogođenoPolje;
-        int duljinaBroda;
+        private Polje prvoPogođenoPolje;
+        private int duljinaBroda;
+        private IEnumerable<Polje> dajKandidate() {
+            List<Polje> kandidati = new List<Polje>();
+            foreach (Smjer smjer in Enum.GetValues(typeof(Smjer))) {
+               var lista= mreža.DajNizSlobodnihPolja(prvoPogođenoPolje,smjer);
+            }
+            return kandidati;
+        }
         public KružniPucač(Mreza mreža,  Polje pogođeno,int duljinaBroda) {
             this.mreža = mreža;
             this.prvoPogođenoPolje= pogođeno;
