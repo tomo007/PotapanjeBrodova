@@ -55,6 +55,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestBrodograditelj.cs" />
     <Compile Include="TestFlote.cs" />
+    <Compile Include="TestKružniPucač.cs" />
+    <Compile Include="TestLinijskiPucač.cs" />
     <Compile Include="TestRedFiksneDuljine.cs" />
     <Compile Include="TestMreza.cs" />
     <Compile Include="TestPolje.cs" />

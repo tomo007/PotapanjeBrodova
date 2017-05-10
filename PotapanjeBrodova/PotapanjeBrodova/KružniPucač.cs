@@ -8,6 +8,15 @@ namespace PotapanjeBrodova
 {
     public class KružniPucač : IPucač
     {
+        private Mreza mreža;
+        Polje prvoPogođenoPolje;
+        int duljinaBroda;
+        public KružniPucač(Mreza mreža,  Polje pogođeno,int duljinaBroda) {
+            this.mreža = mreža;
+            this.prvoPogođenoPolje= pogođeno;
+            this.duljinaBroda = duljinaBroda;
+
+        }
         public IEnumerable<Polje> PogođenaPolja
         {
             get
