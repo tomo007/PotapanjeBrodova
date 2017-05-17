@@ -127,6 +127,7 @@ namespace Test
             Assert.AreEqual(2, polja.Count());
             Assert.AreEqual(new Polje(3, 2), polja.First());
         }
+        [TestMethod]
         public void Mreza_DajNizSlobodnihPoljaVracaDvaPoljaLijevo()
         {
             Mreza m = new Mreza(5, 5);
@@ -134,6 +135,7 @@ namespace Test
             Assert.AreEqual(2, polja.Count());
             Assert.AreEqual(new Polje(2, 1), polja.First());
         }
+        [TestMethod]
         public void Mreza_DajNizSlobodnihPoljaVracaDvaPoljaGore()
         {
             Mreza m = new Mreza(5, 5);
