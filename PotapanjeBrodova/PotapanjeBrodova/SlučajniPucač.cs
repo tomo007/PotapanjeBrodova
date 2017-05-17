@@ -1,38 +1,66 @@
-﻿using PotapanjeBrodova;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace PotapanjeBrodova
 {
     public class SlučajniPucač : IPucač
-    { 
-        private Mreza mreza;
-        private int duljinaBroda;
+    {
+        public SlučajniPucač(Mreza mreža, int duljinaBroda)
+        {
+            this.mreža = mreža;
+            this.duljinaBroda = duljinaBroda;
+        }
+
+        public Polje Gađaj()
+        {
+            var kandidati = DajKandidate();
+            Debug.Assert(kandidati.Count > 0);
+            gađanoPolje = kandidati[izbornik.Next(kandidati.Count)];
+            mreža.UkloniPolje(gađanoPolje);
+            return gađanoPolje;
+        }
+
+        public void ObradiGađanje(RezultatGađanja rezultat)
+        {
+            switch (rezultat)
+            {
+                case RezultatGađanja.Promašaj:
+                    return;
+                case RezultatGađanja.Pogodak:
+                    pogođenaPolja.Add(gađanoPolje);
+                 
+                    return;
+                case RezultatGađanja.Potopljen:
+                    pogođenaPolja.Add(gađanoPolje);
+                    TerminatorPolja terminator = new TerminatorPolja(mreža);
+                    terminator.UkloniPolja(pogođenaPolja);
+                    return;
+                default:
+                    Debug.Assert(false);
+                    break;
+            }
+        }
 
         public IEnumerable<Polje> PogođenaPolja
         {
             get
             {
-                throw new NotImplementedException();
+                return pogođenaPolja.Sortiraj();
             }
         }
 
-        public SlučajniPucač(Mreza mreza, int duljinaBroda) {
-             this.mreza = mreza;
-             this.duljinaBroda = duljinaBroda;
-
-            }
-        public Polje Gađaj()
+        private List<Polje> DajKandidate()
         {
-            throw new NotImplementedException();
+            return mreža.DajNizoveSlobodnihPolja(duljinaBroda).SelectMany(niz => niz).ToList();
         }
 
-        public void ObradiGađanje(RezultatGađanja rezultat)
-        {
-            throw new NotImplementedException();
-        }
+        private Mreza mreža;
+        private int duljinaBroda;
+        private Polje gađanoPolje;
+        private List<Polje> pogođenaPolja = new List<Polje>();
+        private Random izbornik = new Random();
     }
 }

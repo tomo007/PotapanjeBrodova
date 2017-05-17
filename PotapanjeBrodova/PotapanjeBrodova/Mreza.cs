@@ -73,7 +73,7 @@ namespace PotapanjeBrodova
         private IEnumerable<Polje> DajSlobodnaPoljaLijevo(Polje polje)
         {
             List<Polje> rezultat = new List<Polje>();
-            for (int s = polje.Stupac - 1; s < stupaca; --s)
+            for (int s = polje.Stupac - 1; s >=0; --s)
             {
                 if (this.polje[polje.Redak, s] == null)
                     break;
@@ -84,11 +84,11 @@ namespace PotapanjeBrodova
         private IEnumerable<Polje> DajSlobodnaPoljaGore(Polje polje)
         {
             List<Polje> rezultat = new List<Polje>();
-            for (int s = polje.Stupac - 1; s < stupaca; --s)
+            for (int r = polje.Redak - 1; r >=0; --r)
             {
-                if (this.polje[polje.Redak, s] == null)
+                if (this.polje[r, polje.Stupac] == null)
                     break;
-                rezultat.Add(this.polje[polje.Redak, s]);
+                rezultat.Add(this.polje[r, polje.Stupac]);
             }
             return rezultat;
         }

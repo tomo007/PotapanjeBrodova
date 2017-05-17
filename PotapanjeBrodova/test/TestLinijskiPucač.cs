@@ -17,6 +17,7 @@ namespace test
             CollectionAssert.Contains(kandidati, p);
 
         }
+        [TestMethod]
         public void LinijskiPucač_GađajVraćaJednoOdDvaPoljaGoreIliDoljeOdVertikalnogNiza()
         {
             Mreza mreža = new Mreza(10, 10);
@@ -26,6 +27,7 @@ namespace test
             Polje[] kandidati = { new Polje(1, 3), new Polje(4, 3) };
             CollectionAssert.Contains(kandidati, p);
         }
+        [TestMethod]
         public void LinijskiPucač_GađajVraćaSamoSlobodnoPoljeLijevoOdHorizontalnogNiza()
         {
             Mreza mreža = new Mreza(10, 10);
@@ -35,6 +37,7 @@ namespace test
             Assert.AreEqual( new Polje(2,2),puc.Gađaj());
          
         }
+        [TestMethod]
         public void LinijskiPucač_GađajVraćaSamoSlobodnoPoljeDesnoOdHorizontalnogNiza()
         {
             Mreza mreža = new Mreza(10, 10);
@@ -43,6 +46,7 @@ namespace test
             LinijskiPucač puc = new LinijskiPucač(mreža, polja, 3);
             Assert.AreEqual(new Polje(2, 5), puc.Gađaj());
         }
+        [TestMethod]
         public void LinijskiPucač_GađajVraćaSamoSlobodnoPoljeGoreOdVertikalnogNiza()
         {
             Mreza mreža = new Mreza(10, 10);
@@ -53,6 +57,7 @@ namespace test
             Assert.AreEqual(new Polje(1, 3), puc.Gađaj());
            
         }
+        [TestMethod]
         public void LinijskiPucač_GađajVraćaSamoSlobodnoPoljeDoljeOdVertikalnogNiza()
         {
             Mreza mreža = new Mreza(10, 10);
